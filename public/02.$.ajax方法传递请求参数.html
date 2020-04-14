@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>$.ajax方法基本使用</title>
+</head>
+<body>
+	<button id="btn">发送请求</button>
+	<script src="/js/jquery.min.js"></script>
+	<script>
+	$.ajax({
+		type: 'POST',
+		url: '/first',
+		contentType: 'application/json',
+		data: JSON.stringify({
+			name: 'ifer',
+			age: 18
+		}),
+		beforeSend: function() {
+			// 数据校验 return true, false
+			// 进度展示
+		},
+		// data: 'name=ifer&age=18',
+		success: function(data) {
+			console.log(data);
+		},
+		error: function(xhr) {
+			console.log(xhr);
+		}
+	});
+	</script>
+</body>
+</html>
